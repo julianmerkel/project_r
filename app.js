@@ -11,8 +11,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/bill', (req, res) => {
-    var bill_id=req.body.billId;
-    var bill_price=req.body.billPrice;
+    var rechnungsDatum=req.body.rechnungsDatum;
+    var anschrift=req.body.anschrift;
+    var kundenNummer=req.body.kundenNummer;
+    var umsatzSteuerNummer=req.body.umsatzSteuerNummer
+    var geldBetrag=req.body.geldBetrag;
+    var beschreibung=req.body.beschreibung;
     console.log("id: " + bill_id + ", price:  " +bill_price);
     res.end("yes");
 });
