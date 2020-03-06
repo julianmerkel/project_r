@@ -14,6 +14,7 @@ app.post('/bill', (req, res) => {
     var bill_id=req.body.billId;
     var bill_price=req.body.billPrice;
     console.log("id: " + bill_id + ", price:  " +bill_price);
+    console.log(req.body);
     res.end("yes");
 });
 
