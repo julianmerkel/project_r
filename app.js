@@ -30,6 +30,7 @@ app.post('/bill', (req, res) => {
     var beschreibung=req.body.beschreibung;
     generateDocunment(req.body);
     console.log("id: " + bill_id + ", price:  " +bill_price);
+    console.log(req.body);
     res.end("yes");
 });
 
