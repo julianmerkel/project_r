@@ -1,6 +1,6 @@
 const request = require('request');
 
-request.post('http://localhost:8080/bill', {
+request.post('http://192.168.136.130:8080/bill', {
     json: {
         billId: 'asd',
         billPrice: '30'
