@@ -3,9 +3,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var documentGenerator = require('./documentGenerator');
 
-function vatIdIsValid(vatId) {
-    return true;
-}
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -38,10 +35,13 @@ app.listen(8080, () => {
     console.log("Started on PORT 8080");
 })
 
+function vatIdIsValid(vatId) {
+    return true;
+}
 
 function checkForVATID(jsondata) {
    if (vatIdIsValid(jsondata.umsatzSteuerNummer)) {
-        json.mwsteuerBetrag = geldBetrag * 0.19;
+        json.mwsteuerBetrag = geldBetrag * (json.umsatzsteuer/100);
    } else { 
        json.mwsteuerBetrag = 0;
    }
