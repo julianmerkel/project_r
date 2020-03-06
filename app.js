@@ -2,10 +2,17 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var documentGenerator = require('./documentGenerator');
+const fetch = require('node-fetch');
+
+const endpoint1 = 'http://172.16.14.9:8080/';
 
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+
+getC();
+
+
 
 app.get('/', function (req, res) {
     res.send('hallo');
@@ -32,10 +39,15 @@ app.listen(8080, () => {
 function generateDocunment(data) {
     documentGenerator.generate(data);
 }
+/*
+async function getSystemCData() {
+const res = await fetch(endpoint1);
+return res;
+}*/
 
-
-
-
-
-
+function getC() {
+    fetch(endpoint1)
+        .then(res => res.json())
+        .then(json => console.log(json));
+}
 
